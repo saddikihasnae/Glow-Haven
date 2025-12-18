@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Glow Haven</title>
+    <meta name="description" content="Shop Glow Haven's luxury skincare, haircare, and bodycare products.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free Shipping Worldwide over 500 DH</p>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">Glow Haven</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <div class="currency-selector">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>MAD</span>
+                </div>
+                <div class="cart-icon">
+                    <a href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Shop Hero Section -->
+    <section class="shop-hero">
+        <div class="container shop-hero-container">
+            <h1>Glow Haven – Your Daily Self-Care Ritual</h1>
+            <p>Discover our carefully selected products for each category.</p>
+            <button id="scroll-to-products" class="btn btn-primary">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <div id="products-section" class="products-container container">
+
+        <!-- Skin Care Category -->
+        <section class="category-section">
+            <h2 class="category-title">Skin Care</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/skin_cleanser.png" alt="Glow Haven Gentle Cleanser">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Gentle Cleanser</h3>
+                        <p class="short-desc">Purify your skin without stripping natural oils.</p>
+                        <p class="price">80.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Gentle Cleanser"
+                            data-price="80.00 DH" data-image="products/skin_cleanser.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/skin_mask.png" alt="Glow Haven Hydrating Face Mask">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Hydrating Face Mask</h3>
+                        <p class="short-desc">Deep hydration for a radiant glow.</p>
+                        <p class="price">90.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Hydrating Face Mask"
+                            data-price="90.00 DH" data-image="products/skin_mask.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/skin_serum.png" alt="Glow Haven Vitamin C Serum">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Vitamin C Serum</h3>
+                        <p class="short-desc">Brighten and even out your skin tone.</p>
+                        <p class="price">80.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Vitamin C Serum"
+                            data-price="80.00 DH" data-image="products/skin_serum.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/skin_moisturizer.png" alt="Glow Haven Moisture Balance Cream">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Moisture Balance Cream</h3>
+                        <p class="short-desc">Lock in moisture for all-day softness.</p>
+                        <p class="price">80.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Moisture Balance Cream"
+                            data-price="80.00 DH" data-image="products/skin_moisturizer.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hair Care Category -->
+        <section class="category-section">
+            <h2 class="category-title">Hair Care</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/hair_oil.png" alt="Glow Haven Nourishing Hair Oil">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Nourishing Hair Oil</h3>
+                        <p class="short-desc">Restore shine and strength to your hair.</p>
+                        <p class="price">120.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Nourishing Hair Oil"
+                            data-price="120.00 DH" data-image="products/hair_oil.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/hair_shampoo.png" alt="Glow Haven Soft Repair Shampoo">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Soft Repair Shampoo</h3>
+                        <p class="short-desc">Gentle cleansing for damaged hair.</p>
+                        <p class="price">70.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Soft Repair Shampoo"
+                            data-price="70.00 DH" data-image="products/hair_shampoo.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/hair_mask.png" alt="Glow Haven Deep Repair Hair Mask">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Deep Repair Hair Mask</h3>
+                        <p class="short-desc">Intensive treatment for revitalized locks.</p>
+                        <p class="price">65.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Deep Repair Hair Mask"
+                            data-price="65.00 DH" data-image="products/hair_mask.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/hair_leavein.png" alt="Glow Haven Leave-In Smooth Cream">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Leave-In Smooth Cream</h3>
+                        <p class="short-desc">Frizz control and smoothness all day.</p>
+                        <p class="price">70.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Leave-In Smooth Cream"
+                            data-price="70.00 DH" data-image="products/hair_leavein.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Body Care Category -->
+        <section class="category-section">
+            <h2 class="category-title">Body Care</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/body_wash.png" alt="Glow Haven Body Wash Silk Touch">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Body Wash Silk Touch</h3>
+                        <p class="short-desc">A luxurious lather for silky smooth skin.</p>
+                        <p class="price">70.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Body Wash Silk Touch"
+                            data-price="70.00 DH" data-image="products/body_wash.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/body_scrub.png" alt="Glow Haven Sugar Body Scrub">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Sugar Body Scrub</h3>
+                        <p class="short-desc">Exfoliate and renew your skin's texture.</p>
+                        <p class="price">50.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Sugar Body Scrub"
+                            data-price="50.00 DH" data-image="products/body_scrub.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/body_lotion.png" alt="Glow Haven Velvet Body Lotion">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Velvet Body Lotion</h3>
+                        <p class="short-desc">Rich hydration with a velvet finish.</p>
+                        <p class="price">80.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Velvet Body Lotion"
+                            data-price="80.00 DH" data-image="products/body_lotion.png">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="products/body_butter.png" alt="Glow Haven Rich Body Butter">
+                    </div>
+                    <div class="product-info">
+                        <h3>Glow Haven Rich Body Butter</h3>
+                        <p class="short-desc">Deep nourishment for dry skin.</p>
+                        <p class="price">120.00 DH</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="Glow Haven Rich Body Butter"
+                            data-price="120.00 DH" data-image="products/body_butter.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content slide-up">
+            <span class="close-modal">&times;</span>
+            <h2>Complete Your Order</h2>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-name">Product</label>
+                    <input type="text" id="product-name" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Price</label>
+                    <input type="text" id="product-price" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <h3>Glow Haven</h3>
+                <p>Elevating your daily ritual with nature's finest ingredients. Experience the glow.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact</h4>
+                <p><i class="fa-regular fa-envelope"></i> hello@glowhaven.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> 123 Beauty Miami, Tetouan, Morocco</p>
+            </div>
+            <div class="footer-col social-col">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <p>Join our community for exclusive offers.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2025 Glow Haven. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/shop.js"></script>
+</body>
+
+</html>
