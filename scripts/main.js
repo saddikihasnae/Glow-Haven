@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const dropdown = document.getElementById('cart-dropdown');
             if (dropdown) {
                 dropdown.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent closing when clicking inside
                     const target = e.target;
 
                     if (target.classList.contains('close-cart')) {
@@ -280,7 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" required>
+                                    <input type="email" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
@@ -308,17 +313,66 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                form.addEventListener('submit', (e) => {
+                form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     if (this.items.length === 0) {
                         alert("Your cart is empty!");
                         return;
                     }
-                    alert("Thank you for your order! We will contact you shortly.");
-                    this.items = []; // Clear cart
-                    this.save();
-                    modal.classList.remove('show');
-                    document.getElementById('global-order-form').reset();
+
+                    const formData = {
+                        customer_name: document.getElementById('full-name').value,
+                        phone: document.getElementById('phone').value,
+                        email: document.getElementById('email').value,
+                        city: document.getElementById('city').value,
+                        address: document.getElementById('address').value,
+                        total_amount: this.getTotal(),
+                        items: this.items
+                    };
+
+                    try {
+                        const response = await fetch('place_order.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(formData)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            // Prepare WhatsApp Message
+                            let msg = `*New Order!* %0A`;
+                            msg += `*Name:* ${formData.customer_name} %0A`;
+                            msg += `*Phone:* ${formData.phone} %0A`;
+                            msg += `*City:* ${formData.city} %0A`;
+                            msg += `*Address:* ${formData.address} %0A%0A`;
+                            msg += `*Order Details:* %0A`;
+                            this.items.forEach(item => {
+                                msg += `- ${item.quantity}x ${item.name} (${item.price}) %0A`;
+                            });
+                            msg += `%0A*Total:* ${formData.total_amount} DH`;
+
+                            // WhatsApp Number (Shop Owner)
+                            const phone = "212600000000";
+                            const url = `https://wa.me/${phone}?text=${msg}`;
+
+                            window.open(url, '_blank');
+
+                            alert("Order placed successfully! Redirecting to WhatsApp...");
+
+                            this.items = []; // Clear cart
+                            this.save();
+                            modal.classList.remove('show');
+                            document.getElementById('global-order-form').reset();
+                        } else {
+                            alert("Error placing order: " + result.message);
+                        }
+                    } catch (err) {
+                        console.error(err);
+                        alert("An unexpected error occurred: " + err.message + "\nPlease check if the database connection is correct.");
+                    }
                 });
             }
         }
@@ -381,4 +435,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.scroll-animate').forEach(el => {
         observer.observe(el);
     });
+
+    // Contact Form Logic
+    const contactForm = document.getElementById('contact-form-db');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                phone: document.getElementById('contact-phone').value,
+                comment: document.getElementById('contact-comment').value
+            };
+
+            try {
+                const response = await fetch('submit_message.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert("Message sent successfully!");
+                    contactForm.reset();
+                } else {
+                    alert("Error sending message: " + result.message);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("An unexpected error occurred: " + err.message);
+            }
+        });
+    }
 });

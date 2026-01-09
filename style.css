@@ -482,14 +482,15 @@ h4 {
   }
 
   .main-header .header-icons {
-    display: none;
+    display: flex;
+    margin-right: 0;
+    margin-left: auto;
   }
 
   .main-header .mobile-menu-toggle {
     display: block;
-    position: absolute;
-    right: 20px;
-    top: 25px;
+    position: static;
+    margin-left: 20px;
   }
 
   .categories .carousel-slide {
